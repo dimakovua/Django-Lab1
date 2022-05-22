@@ -1,0 +1,6 @@
+HERE WE ARE
+{% for cli in cl %}
+
+{{per|index:forloop.counter.first_name}}, {{cli.id}},{{cli.person}}, {{cli.accumulative_card}}, {{sts.email}}
+<br>
+{% endfor %}

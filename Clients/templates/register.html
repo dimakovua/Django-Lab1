@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+
+{% block staff %}
+<a href="{% url 'clientreg' %}" class="btn btn-primary btn-lg btn-block active" role="button" aria-pressed="true">I'm Client</a>
+<a href="{% url 'masterreg' %}" class="btn btn-secondary btn-lg btn-block active" role="button" aria-pressed="true">I'm Master</a>
+{% endblock %}
