@@ -1,6 +1,12 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
+from clientreg.models import Clients, Persons
+import random
+
+def logincl(request):
+    pass
+
 def clientreg(request):
     print("ABOBA")
     if request.method == 'POST':
@@ -24,7 +30,13 @@ def clientreg(request):
             else:
                 user = User.objects.create_user(username=username, password=password1, email=email, first_name=first_name, last_name=last_name)
                 user.save()
+                person = Persons(first_name=first_name, last_name=last_name, father_name = father_name, phone_number = phone_number)
+                person.save()
+                card = random.randint(100000000, 999999999)
+                client = Clients(person = person, accumulative_card = card, email =email)
+                client.save()
                 print ('User created')
+                print ('Person created')
                 return redirect('/home')  
         else:
             print('im here')

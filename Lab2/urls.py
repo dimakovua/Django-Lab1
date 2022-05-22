@@ -23,4 +23,5 @@ urlpatterns = [
     path('register', include('register.urls')),
     path('clientreg', include('clientreg.urls')),
     path('masterreg', include('masterreg.urls')),
+    path('logincl', include('logincl.urls'))
 ]
