@@ -37,7 +37,7 @@ def clientreg(request):
                 client.save()
                 print ('User created')
                 print ('Person created')
-                return redirect('/home')  
+                return redirect('/logincl')  
         else:
             print('im here')
             messages.info(request, 'Password does not match')    

@@ -1,0 +1,27 @@
+{% extends 'baseclient.html' %}
+
+{% block staff %}
+
+Hello, {{name}}
+Your devices:
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Model</th>
+        <th scope="col">Breakage</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in devices %}
+      <tr>
+        <td>{{i.name}}</td>
+        <td>{{i.model}}</td>
+        <td>{{i.breakage}}</td>
+        <td><li class="nav-item"><a href="{% url 'delete-item' id=i.id %}" class="nav-link">Delete</a></li></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
