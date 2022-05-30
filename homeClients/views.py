@@ -13,10 +13,13 @@ def delete_item(request, id):
 
 def homeclient(request):
     if request.user.is_authenticated:
+        client = Clients.objects.all().first()
         email = request.user.email
-        client = Clients.objects.get(email=email)
-        print(client.person.first_name)
-
+        try:
+            client = Clients.objects.get(email=email)
+            print(client.person.first_name)
+        except:
+            return redirect('/homemaster')
         client_id = client.id
         list_ownerships = []
         try:

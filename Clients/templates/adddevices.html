@@ -18,10 +18,15 @@
                   <input type="text" name="model" id="form3Example4cg" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example4cg">Model</label>
                 </div>
-                <div class="form-outline mb-4">
-                    <input type="text" name="breakage" id="form3Example4cg" class="form-control form-control-lg" />
-                    <label class="form-label" for="form3Example4cg">Breakage</label>
-                  </div>
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example4cg">Choose a breakage type:</label>
+                    <select class="form-select-lg" name="breakage" aria-label="breakage">
+                      <option value="battery" selected>Battery</option>
+                      <option value="screen">Screen</option>
+                      <option value="soft">Soft</option>
+                      <option value="Camera">Camera</option>
+                    </select>
+                </div>
                 <div class="d-flex justify-content-center">
                   <button type="submit" value="Submit"
                     class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Add</button>

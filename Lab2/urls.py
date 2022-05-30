@@ -26,4 +26,7 @@ urlpatterns = [
     path('logincl', include('logincl.urls')),
     path('homeclient', include('homeClients.urls')),
     path('adddevices', include('AddDevices.urls')),
+    path('loginmast', include('loginmast.urls')),
+    path('homemaster', include('homeMasters.urls')),
+    path('logout', include('logout.urls')),
 ]
