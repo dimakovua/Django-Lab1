@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'home',
     'register',
     'homeClients',
+    'homeMasters',
     'masterreg',
     'special',
 ]

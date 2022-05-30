@@ -1,5 +1,29 @@
 {% extends 'basemaster.html' %}
 
+
 {% block staff %}
-"Home page for masters. There will be all available contracts and current contracts. Master will be able to cancel order, accept order and change order status"
+
+Hello, {{name}}
+Your Services:
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Time</th>
+        <th scope="col">Cost</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in service %}
+      <tr>
+        <td>{{i.services_name}}</td>
+        <td>{{i.time}}</td>
+        <td>{{i.cost}}</td>
+        <td><li class="nav-item"><a href="{% url 'delete-item' id=i.id %}" class="nav-link">Delete</a></li></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
 {% endblock %}
