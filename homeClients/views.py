@@ -15,6 +15,7 @@ def delete_item(request, id):
     print("deleted")
     return redirect('/homeclient')
 
+
 def homeclient(request):
     if request.user.is_authenticated:
         client = Clients.objects.all().first()
@@ -38,7 +39,9 @@ def homeclient(request):
             for i in list_ownerships :
                 list_devices.append(i.device)
                 print(i.device.name)
-        contracts = Contract.objects.all().filter(client=client)
-        return render(request, 'homeclients.html', {'name': client.person.first_name, 'devices' : list_devices, 'contracts': contracts})
+        contracts = Contract.objects.all().filter(client=client, status=1)
+        contracts_progress = Contract.objects.all().filter(client=client, status=2)
+        contracts_done = Contract.objects.all().filter(client=client, status=3)
+        return render(request, 'homeclients.html', {'name': client.person.first_name, 'devices' : list_devices, 'contracts': contracts, 'contracts_progress': contracts_progress, 'contracts_done' : contracts_done})
     else:
         return redirect('/clientreg')

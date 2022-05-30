@@ -24,7 +24,8 @@ Your devices:
     {% endfor %}
     </tbody>
   </table>
-Active contracts:
+  <br>
+Waiting for master answer:
 
 {%for item in contracts %}
 <div class="card text-center">
@@ -32,7 +33,32 @@ Active contracts:
   </div>
   <div class="card-body">
     <h5 class="card-title">{{item.service.services_name}}</h5>
-    <p class="card-text">Date: {{item.date}} Status: {{item.status}} Master: {{item.master.person.first_name}}</p>
+    <p class="card-text">Date: {{item.date}} Status: Waiting  Master: {{item.master.person.first_name}}</p>
+  </div>
+</div>
+{% endfor %}
+<br>
+In progress:
+
+{%for item in contracts_progress %}
+<div class="card text-center">
+  <div class="card-header">
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{item.service.services_name}}</h5>
+    <p class="card-text">Date: {{item.date}} Status: "In Progress"  Master: {{item.master.person.first_name}}</p>
+  </div>
+</div>
+{% endfor %}
+<br>
+Done contracts:
+{%for item in contracts_done %}
+<div class="card text-center">
+  <div class="card-header">
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{item.service.services_name}}</h5>
+    <p class="card-text">Date: {{item.date}} Status: DONE  Master: {{item.master.person.first_name}}</p>
   </div>
 </div>
 {% endfor %}

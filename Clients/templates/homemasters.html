@@ -26,4 +26,18 @@ Your Services:
     </tbody>
   </table>
 
+ToDo:
+Active contracts:
+
+{%for item in contracts %}
+<div class="card text-center">
+  <div class="card-header">
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{item.service.services_name}}</h5>
+    <p class="card-text">Date: {{item.date}} Status: {{item.status}} Client: {{item.client.person.first_name}}</p>
+    <a href="{% url 'done' contr_id=item.id %}" class="btn btn-primary">Done</a>
+  </div>
+</div>
+{% endfor %}
 {% endblock %}

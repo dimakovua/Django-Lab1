@@ -14,6 +14,13 @@ def take(request, contr_id):
     contrnew.save()
     return redirect('take-order')
 
+def refuse(request, contr_id):
+    contr = Contract.objects.get(id=contr_id)
+    contrnew = ContractNew1.objects.get(id=int(contr.id-2))
+    contr.delete()
+    contrnew.delete()
+    return redirect('take-order')
+
 def take_order(request):
     if request.user.is_authenticated:
         master = Masters.objects.all().first()

@@ -12,6 +12,7 @@ Available contracts:
     <h5 class="card-title">{{item.service.services_name}}</h5>
     <p class="card-text">Date: {{item.date}} Status: {{item.status}}</p>
     <a href="{% url 'take' contr_id=item.id %}" class="btn btn-primary">Take Order</a>
+    <a href="{% url 'refuse' contr_id=item.id %}" class="btn btn-primary">Refuse Order</a>
   </div>
 </div>
 {% endfor %}
