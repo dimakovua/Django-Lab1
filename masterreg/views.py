@@ -2,7 +2,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from masterreg.models import Masters, Persons
-import random
+
 
 
 def masterreg(request):

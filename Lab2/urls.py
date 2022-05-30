@@ -29,4 +29,6 @@ urlpatterns = [
     path('loginmast', include('loginmast.urls')),
     path('homemaster', include('homeMasters.urls')),
     path('logout', include('logout.urls')),
+    path('special', include('special.urls')),
+    
 ]
