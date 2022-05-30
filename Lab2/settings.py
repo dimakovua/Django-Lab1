@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'homeMasters',
     'masterreg',
     'special',
+    'logout',
 ]
 
 MIDDLEWARE = [

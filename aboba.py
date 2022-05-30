@@ -32,6 +32,29 @@ class Contract(models.Model):
         db_table = 'Contract'
 
 
+class ContractNew1(models.Model):
+    client = models.IntegerField(blank=True, null=True)
+    device = models.IntegerField(blank=True, null=True)
+    master = models.IntegerField(blank=True, null=True)
+    service = models.IntegerField(blank=True, null=True)
+    date = models.DateField(blank=True, null=True)
+    status = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'Contract_new1'
+
+
+class Contractt(models.Model):
+    id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
+    date = models.DateField(db_column='Date')  # Field name made lowercase.
+    status = models.IntegerField(db_column='Status')  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'Contractt'
+
+
 class Devices(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
     name = models.CharField(db_column='Name', max_length=10)  # Field name made lowercase.
@@ -209,15 +232,3 @@ class DjangoSession(models.Model):
     class Meta:
         managed = False
         db_table = 'django_session'
-
-class ContractNew1(models.Model):
-    client = models.IntegerField(blank=True, null=True)
-    device = models.IntegerField(blank=True, null=True)
-    master = models.IntegerField(blank=True, null=True)
-    service = models.IntegerField(blank=True, null=True)
-    date = models.DateField(blank=True, null=True)
-    status = models.IntegerField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'Contract_new1'

@@ -19,9 +19,22 @@ Your devices:
         <td>{{i.name}}</td>
         <td>{{i.model}}</td>
         <td>{{i.breakage}}</td>
-        <td><li class="nav-item"><a href="{% url 'delete-item' id=i.id %}" class="nav-link">Delete</a></li></td>
+        <td><li class="nav-item"><a href="{% url 'delete-dev' id=i.id %}" class="nav-link">Delete</a></li></td>
       </tr>
     {% endfor %}
     </tbody>
   </table>
+Active contracts:
+
+{%for item in contracts %}
+<div class="card text-center">
+  <div class="card-header">
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{item.service.services_name}}</h5>
+    <p class="card-text">Date: {{item.date}} Status: {{item.status}}</p>
+  </div>
+</div>
+{% endfor %}
+
 {% endblock %}

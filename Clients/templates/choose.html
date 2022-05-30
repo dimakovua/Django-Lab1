@@ -1,0 +1,21 @@
+{% extends 'baseclient.html' %}
+
+{% block staff %}
+
+{% for item in class %}
+{% for serv in item.services %}
+<div class="card text-center">
+    <div class="card-header">
+    {{item.device.name}}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{serv.services_name}}</h5>
+      <p class="card-text">Time: {{serv.time}} Cost: {{serv.cost}}</p>
+      <a href="{% url 'offer' dev_id=item.device.id serv_id=serv.id%}" class="btn btn-primary">Offer</a>
+    </div>
+</div>
+
+{% endfor %}
+{% endfor %}
+
+{% endblock %}

@@ -1,11 +1,15 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from homeClients.models import Clients, Persons, Devices, OwnershipDocument
+from homeClients.models import Clients, Persons, Devices, OwnershipDocument, Contract, Masters, Services, Specialization, OwnershipDocument, ContractNew1
 # Create your views here.
 
 def delete_item(request, id):
     device = Devices.objects.get(id=id)
     owndoc = OwnershipDocument.objects.get(device=device)
+    contrnew = ContractNew1.objects.get(device=device.id)
+    contr = Contract.objects.get(id=int(contrnew.id+2))
+    contrnew.delete()
+    contr.delete()
     owndoc.delete()
     device.delete()
     print("deleted")
@@ -34,6 +38,7 @@ def homeclient(request):
             for i in list_ownerships :
                 list_devices.append(i.device)
                 print(i.device.name)
-        return render(request, 'homeclients.html', {'name': client.person.first_name, 'devices' : list_devices})
+        contracts = Contract.objects.all().filter(client=client)
+        return render(request, 'homeclients.html', {'name': client.person.first_name, 'devices' : list_devices, 'contracts': contracts})
     else:
         return redirect('/clientreg')
