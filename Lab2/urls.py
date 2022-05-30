@@ -30,5 +30,6 @@ urlpatterns = [
     path('homemaster', include('homeMasters.urls')),
     path('logout', include('logout.urls')),
     path('special', include('special.urls')),
-    path('choose-serv', include('choose_serv.urls'))
+    path('choose-serv', include('choose_serv.urls')),
+    path('take-order', include('take_order.urls')),
 ]

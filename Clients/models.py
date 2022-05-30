@@ -78,7 +78,7 @@ class Persons(models.Model):
 
 class Services(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
-    services_name = models.CharField(db_column='Services_name', unique=True, max_length=10)  # Field name made lowercase.
+    services_name = models.CharField(db_column='Services_name', max_length=10)  # Field name made lowercase.
     time = models.CharField(db_column='Time', max_length=10)  # Field name made lowercase.
     cost = models.DecimalField(db_column='Cost', max_digits=7, decimal_places=2)  # Field name made lowercase.
 

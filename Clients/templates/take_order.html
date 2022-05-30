@@ -1,0 +1,19 @@
+{% extends 'basemaster.html' %}
+
+{% block staff %}
+
+Available contracts:
+
+{%for item in contracts %}
+<div class="card text-center">
+  <div class="card-header">
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{item.service.services_name}}</h5>
+    <p class="card-text">Date: {{item.date}} Status: {{item.status}}</p>
+    <a href="{% url 'take' contr_id=item.id %}" class="btn btn-primary">Take Order</a>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}
